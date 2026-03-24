@@ -7,7 +7,8 @@ WORKDIR /
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY handler.py .
+# Copy everything from your repo into the container
+COPY . .
 
-# Run the handler
+# Force the command to look at the root handler
 CMD [ "python", "-u", "/handler.py" ]
